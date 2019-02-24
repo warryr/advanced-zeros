@@ -6,9 +6,9 @@ module.exports = function getZerosCount(number, base) {
     for (let i = 2; i <= base; i++) {
         while ((base % i) === 0) {
             base /= i;
-            if (baseFactors[i] === undefined){
+            if (baseFactors[i] === undefined) {
                 baseFactors[i] = 1;
-            } else{
+            } else {
                 baseFactors[i]++;
             }
         }
@@ -16,10 +16,10 @@ module.exports = function getZerosCount(number, base) {
 
     //number factors
     let  n, temp;
-    for (let key in baseFactors){
+    for (let key in baseFactors) {
         n = 0;
         temp = number;
-        while(temp > 1){
+        while(temp > 1) {
             temp = Math.floor(temp / key);
             n += temp;
         }
@@ -28,7 +28,7 @@ module.exports = function getZerosCount(number, base) {
 
     //count zeros
     const arr = [];
-    for (key in baseFactors){
+    for (let key in baseFactors) {
         arr.push(Math.floor(numberFactors[key] / baseFactors[key]));
     }
     return Math.min.apply(null, arr);
